@@ -1,10 +1,10 @@
-﻿=== CC BMI Calculator ===
+=== CC BMI Calculator ===
 Contributors: CalculatorsCanada.ca, calculatorsworld
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WMNEW56HL8NLW
-Tags: calculator, shortcode, BMI, metric, imperial
+Tags: BMI Calculator, calculator, sidebar, widget, plugin, shortcode, health, weight, BMI, metric, imperial, responsive
 Requires at least: 3.0
-Tested up to: 6.7.1
-Stable tag: 2.1.0
+Tested up to: 6.8.0
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,9 +70,12 @@ Please [contact us](https://calculatorsworld.com/contact/) if you have further q
 
 == Changelog ==
 
+= 2.1.1 = 
+* Fixed low level vulnerability 
+
 = 2.1.0 = 
 * Fixed low level vulnerability 
-* Fixed imperial BMI calculation then 0 in is entered
+* Fixed imperial BMI calculation then 0in is entered
 
 = 2.0.1 = 
 * Added ability to show only metric or imperial or both units 

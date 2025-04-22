@@ -4,12 +4,12 @@
 Plugin Name: CC BMI Calculator
 Plugin URI: https://calculatorsworld.com/health/bmi-calculator/
 Description: BMI (Body Mass Index) Calculator
-Version: 2.1.0
+Version: 2.1.1
 Author: Calculators World
 Author URI: https://calculatorsworld.com
 License: GPL2
 
-Copyright 2015-2024 CalculatorsWorld.com (info@calculatorsworld.com)
+Copyright 2015-2025 CalculatorsWorld.com (info@calculatorsworld.com)
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -154,9 +154,6 @@ class cc_bmi_calculator extends WP_Widget {
 
 	// widget display
 	function widget($args, $instance) {
-        // write_log('widget $instance');
-        // write_log($instance);		
-		
 		echo $args['before_widget'];
         load_cc_bmi_calc($this->id, $instance);
 		echo $args['after_widget'];
@@ -178,9 +175,6 @@ class cc_bmi_calculator extends WP_Widget {
             'button_border_color'=> '#a0a0a0',
 			'shortcode'=>'0'
         );
-        // write_log('get_defaults $defaults');
-        // write_log($defaults);			
-		
         return $defaults;
     }
 
@@ -200,9 +194,9 @@ add_action ('widgets_init', 'cc_bmi_calculator_init');
 function cc_bmi_scripts() {
     // write_log('cc_bmi_scripts');			
 	
-	wp_register_style( 'cc-bmi-calculator', plugins_url('/cc-bmi-calculator.css',__FILE__), NULL, '2.1.0'); 
+	wp_register_style( 'cc-bmi-calculator', plugins_url('/cc-bmi-calculator.css',__FILE__), NULL, '2.1.1'); 
 	wp_enqueue_style( 'cc-bmi-calculator' );
-    wp_enqueue_script( 'cc-bmi-calculator', plugins_url('/cc-bmi-calculator.js',__FILE__), array('jquery'), '2.1.0', true );
+    wp_enqueue_script( 'cc-bmi-calculator', plugins_url('/cc-bmi-calculator.js',__FILE__), array('jquery'), '2.0.1', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'cc_bmi_scripts' );
@@ -224,12 +218,12 @@ function cc_bmi_shortcode($shortcode_atts, $content=null)
     $atts = shortcode_atts (cc_bmi_calculator::get_defaults(), $shortcode_atts);
 	
     if(!isset($shortcode_atts['dev_credit'])) $atts['dev_credit'] = 1;
+    $atts['title'] = esc_attr($atts['title']);
     
 	if ( $atts['dev_credit'] && !empty($atts['title'])) {
          $atts['title'] = '<a href="https://calculatorsworld.com/health/bmi-calculator/" target="_blank">' . esc_attr($atts['title']) . '</a>';		
          $atts['shortcode'] = 1;
     }
-
     ob_start();
     load_cc_bmi_calc('cc_bmi_shortcode', $atts);
     $widget = ob_get_contents();

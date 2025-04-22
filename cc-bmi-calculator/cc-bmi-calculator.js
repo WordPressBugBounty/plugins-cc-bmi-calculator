@@ -1,6 +1,6 @@
 /*!
  * cc-bmi-calculator.js v2.0.1
- * Copyright 2015-2020, Calculators World
+ * Copyright 2015-2025, Calculators World
  *
  * Freely distributable under the MIT license.
  *
